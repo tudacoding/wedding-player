@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const images = [
   '/images/1R6A2989.JPG',
-  '/images/1R6A2945.JPG',
+  '/images/1R6A2928.JPG',
 ];
 
 export default function ImageSlider() {

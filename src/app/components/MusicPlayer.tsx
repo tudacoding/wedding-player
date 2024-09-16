@@ -79,7 +79,7 @@ export default function MusicPlayer() {
   const progressPercentage = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 text-white p-6 rounded-xl shadow-2xl">
+    <div className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 text-white p-6 rounded-xl shadow-2xl">
       <div className="flex items-center space-x-4 mb-6">
         <div className="relative w-20 h-20 rounded-lg shadow-md overflow-hidden">
           <Image
@@ -116,7 +116,7 @@ export default function MusicPlayer() {
         </button>
         <button
           onClick={togglePlay}
-          className="bg-white text-purple-600 rounded-full p-4 hover:bg-opacity-90 transition-all transform hover:scale-105"
+          className="bg-white text-red-600 rounded-full p-4 hover:bg-opacity-90 transition-all transform hover:scale-105"
         >
           {isPlaying ? (
             <FaPause size={24} />
