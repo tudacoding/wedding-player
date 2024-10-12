@@ -8,17 +8,20 @@ const HomeHero = () => {
         <Image
           src="/images/wedding/image-1.2.png"
           alt="Wedding couple"
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="7vw"
+          style={{ objectFit: "cover" }}
           quality={100}
         />
       </div>
       <div className="w-[33%] relative">
         <Image
+          priority
           src="/images/wedding/image-1.1.png"
           alt="Wedding invitation"
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="33vw"
+          style={{ objectFit: "cover" }}
           quality={100}
         />
       </div>

@@ -8,25 +8,30 @@ const Footer = () => {
           src="/images/logo.png"
           alt="PT Logo"
           width={50}
-          height={50}
+          height="50"
           className="mb-4"
+          style={{ width: '50px', height: 'auto' }}
         />
         <div className="flex items-center mb-6">
           <p className="font-eb-garamond mb-4 mr-4">designed by Phuong./.</p>
           <div className="flex items-center space-x-1">
             <Image
+              priority
               src="/images/footer/footer-1.png"
               alt="Couple 1"
               width={120}
               height={120}
+              style={{ width: '120px', height: 'auto' }}
             />
             <Image
+              priority
               src="/images/footer/footer-2.png"
               alt="Couple 2"
               width={120}
               height={120}
             />
             <Image
+              priority
               src="/images/footer/footer-3.png"
               alt="Couple 3"
               width={120}

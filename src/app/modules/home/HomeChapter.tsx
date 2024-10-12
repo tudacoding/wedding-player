@@ -31,12 +31,13 @@ const HomeChapter = () => {
             01
           </h2>
           <Image
+            priority
             className="w-full"
             src="/images/wedding/image-1.5.png"
             alt="Chapter 1"
             width={400}
             height={300}
-            objectFit="cover"
+            quality={100}
           />
         </div>
       </div>
@@ -53,7 +54,7 @@ const HomeChapter = () => {
             alt="Chapter 2"
             width={400}
             height={300}
-            objectFit="cover"
+            quality={100}
           />
         </div>
         <div className="w-1/2 pl-8">
@@ -98,7 +99,7 @@ const HomeChapter = () => {
             alt="Chapter 3"
             width={400}
             height={300}
-            objectFit="cover"
+            quality={100}
           />
         </div>
       </div>

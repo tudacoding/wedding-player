@@ -44,8 +44,7 @@ export default function ImageSlider() {
         }`}
         src={images[currentIndex]}
         alt="Sliding image"
-        layout="fill"
-        objectFit="cover"
+        fill
         objectPosition="center"
         priority
       />

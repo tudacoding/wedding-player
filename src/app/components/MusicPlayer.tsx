@@ -117,8 +117,7 @@ export default function MusicPlayer() {
           <Image
             src="/images/1R6A2920.JPG"
             alt="Album cover"
-            layout="fill"
-            objectFit="cover"
+            fill
             objectPosition="center"
           />
         </div>

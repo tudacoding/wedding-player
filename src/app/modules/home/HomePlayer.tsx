@@ -23,18 +23,30 @@ const HomePlayer = () => {
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.addEventListener('loadedmetadata', () => {
-        setDuration(audioRef.current!.duration);
-      });
-      audioRef.current.addEventListener('timeupdate', () => {
-        setCurrentTime(audioRef.current!.currentTime);
-      });
+      const audio = audioRef.current;
+      const handleLoadedMetadata = () => {
+        setDuration(audio.duration);
+      };
+      const handleTimeUpdate = () => {
+        setCurrentTime(audio.currentTime);
+      };
+
+      audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+      audio.addEventListener('timeupdate', handleTimeUpdate);
+
+      return () => {
+        audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+        audio.removeEventListener('timeupdate', handleTimeUpdate);
+      };
     }
   }, [currentSong]);
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.play();
+      audioRef.current.play().catch(error => {
+        console.error("Error playing audio:", error);
+        setIsPlaying(false);
+      });
       setIsPlaying(true);
     }
   }, [currentSong]);
@@ -44,7 +56,9 @@ const HomePlayer = () => {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch(error => {
+          console.error("Error playing audio:", error);
+        });
       }
       setIsPlaying(!isPlaying);
     }
@@ -147,8 +161,8 @@ const HomePlayer = () => {
           <Image
             src="/images/wedding/image-1.3.png"
             alt="Vinyl record"
-            layout="fill"
-            objectFit="contain"
+            fill
+            sizes="10vw"
             className={`rounded-full ${isPlaying ? "animate-spin" : ""}`}
             style={{ animationDuration: "4s" }}
           />
@@ -157,8 +171,8 @@ const HomePlayer = () => {
             <Image
               src="/images/wedding/image-1.4.png"
               alt="Album cover"
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="10vw"
               className="rounded-sm shadow-lg"
             />
           </div>
