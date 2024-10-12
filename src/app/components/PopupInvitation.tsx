@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-
+import DownloadInvitation from "./DownloadInvitation";
 interface PopupInvitationProps {
   sender: string;
   message: string;
@@ -104,6 +104,7 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
             <div className="mb-2 sm:mb-0 text-center sm:text-left">
               Thank you for your love and support. We are truly grateful.{" "}
             </div>
+            <DownloadInvitation name={sender} message={message} />
           </div>
         </div>
       </div>
