@@ -46,9 +46,9 @@ const HomePlayer = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row bg-primary text-white min-h-screen">
+    <div className="flex flex-col md:flex-row bg-primary text-white">
       {/* Left side: Song list and current song (40%) */}
-      <div className="w-full md:w-2/5 p-20 flex flex-col justify-between">
+      <div className="w-full md:w-2/5 p-20 flex flex-col justify-between items-center">
         <div className="overflow-y-auto text-center mb-8">
           <h2 className="text-2xl italic font-thin font-eb-garamond mb-6">
             Tracklist
@@ -69,7 +69,7 @@ const HomePlayer = () => {
             ))}
           </ul>
         </div>
-        <div className="w-full max-w-md text-center">
+        <div className="w-full max-w-md text-center justify-center">
           <div className="relative w-full h-1 bg-white/30 rounded-full mb-4">
             <div
               className="absolute top-0 left-0 h-full bg-yellow-300 rounded-full"
