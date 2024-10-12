@@ -1,6 +1,9 @@
+import HomeHero from "@/app/modules/home/HomeHero";
+
 export default function Home() {
   return (
-    <div className="p-4">
+    <div>
+      <HomeHero />
       <h1 className="text-4xl font-svn-snell font-bold">
         Xin chào từ SVN-Snell Bold!
       </h1>
