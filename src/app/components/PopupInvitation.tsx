@@ -100,7 +100,7 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
               </div>
             </div>
           </div>
-          <div className="text-primary mt-4 sm:mt-8 font-manrope uppercase flex flex-col sm:flex-row justify-between text-xs sm:text-base">
+          <div className="text-primary mt-4 sm:mt-8 font-manrope uppercase flex flex-col sm:flex-row items-center justify-between text-xs sm:text-base">
             <div className="mb-2 sm:mb-0 text-center sm:text-left">
               Thank you for your love and support. We are truly grateful.{" "}
             </div>
