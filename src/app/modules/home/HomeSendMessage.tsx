@@ -1,11 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
+import PopupInvitation from "../../components/PopupInvitation";
 
 const HomeSendMessage = () => {
   const [name, setName] = useState("");
   const [wishes, setWishes] = useState("");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,9 +17,19 @@ const HomeSendMessage = () => {
       alert("Please fill in all fields");
       return;
     }
-    // Here you would typically send the data to a server
-    console.log("Sending message:", { name, wishes });
-    // Reset form after submission
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const scrollY = window.scrollY || window.pageYOffset;
+      setPopupPosition({ 
+        x: rect.left + window.scrollX, 
+        y: rect.top + scrollY + 150
+      });
+    }
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
     setName("");
     setWishes("");
   };
@@ -71,6 +85,7 @@ const HomeSendMessage = () => {
                   ></textarea>
                 </div>
                 <button
+                  ref={buttonRef}
                   type="submit"
                   className="w-full bg-primary text-white font-manrope py-3 px-6 uppercase hover:bg-primary-dark transition duration-300"
                 >
@@ -81,6 +96,13 @@ const HomeSendMessage = () => {
           </div>
         </div>
       </div>
+      <PopupInvitation
+        sender={name}
+        message={wishes}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        position={popupPosition}
+      />
     </div>
   );
 };
