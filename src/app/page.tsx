@@ -31,10 +31,11 @@ export default function WelcomePage() {
             onMouseLeave={() => setIsHovered(false)}
           >
             <Image
-              src="/images/logo-blue.png"
+              src="/images/logo.svg"
               alt="Logo"
               width={300}
               height={300}
+              quality={100}
               className={`cursor-pointer transition-all duration-500 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 ${
                 isHovered ? "scale-110 brightness-110 rotate-3" : ""
               }`}
@@ -51,7 +52,7 @@ export default function WelcomePage() {
           </div>
         </Link>
       </div>
-      <div className="mt-8 text-center">
+      <div className="mt-12 text-center">
         <p className="text-primary font-svn-snell text-2xl sm:text-3xl md:text-4xl">Ouỳnh Phương & Tiến Thịnh</p>
         <p className="text-primary font-eb-garamond text-xs sm:text-sm mt-2">17:00 - October 20th, 2024</p>
       </div>

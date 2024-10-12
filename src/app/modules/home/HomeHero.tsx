@@ -1,7 +1,16 @@
+"use client";
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
+import { useState } from "react";
+import SidebarQRCode from "@/app/components/SidebarQRCode";
 
 const HomeHero = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="flex flex-col md:flex-row h-screen p-1 bg-primary gap-1">
       <div className="hidden md:block md:w-[7%] relative h-full">
@@ -28,7 +37,7 @@ const HomeHero = () => {
       <div className="w-full md:w-[60%] relative bg-white h-2/3 md:h-full">
         <div className="absolute top-4 left-4">
           <Image
-            src="/images/logo-blue.png"
+            src="/images/logo.svg"
             alt="Logo"
             width={50}
             height={50}
@@ -36,20 +45,22 @@ const HomeHero = () => {
           />
         </div>
         <div className="absolute top-4 right-4 text-primary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          <button onClick={toggleSidebar}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
         <div className="flex flex-col justify-center items-center text-primary h-full p-4 md:p-8">
           <div className="font-eb-garamond text-sm md:text-base">The Preface</div>
@@ -72,6 +83,7 @@ const HomeHero = () => {
           </div>
         </div>
       </div>
+      <SidebarQRCode isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
     </div>
   );
 };
