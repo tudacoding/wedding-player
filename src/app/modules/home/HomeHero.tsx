@@ -27,8 +27,8 @@ const HomeHero = () => {
           <Image
             src="/images/logo-blue.png"
             alt="Logo"
-            width={50}
-            height={50}
+            width={100}
+            height={100}
           />
         </div>
         <div className="absolute top-4 right-4 text-primary">
