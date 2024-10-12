@@ -1,9 +1,10 @@
 import HomeHero from "@/app/modules/home/HomeHero";
-
+import HomePlayer from "@/app/modules/home/HomePlayer";
 export default function Home() {
   return (
     <div>
       <HomeHero />
+      <HomePlayer />
       <h1 className="text-4xl font-svn-snell font-bold">
         Xin chào từ SVN-Snell Bold!
       </h1>
