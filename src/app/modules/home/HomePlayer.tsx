@@ -94,7 +94,7 @@ const HomePlayer = () => {
             {songs.map((song) => (
               <li
                 key={song.id}
-                className={`mb-2 md:mb-4 cursor-pointer transition-all duration-300 hover:text-yellow-300 ${
+                className={`mb-2 md:mb-4 cursor-pointer transition-all duration-300 hover:text-blue-300 ${
                   currentSong.id === song.id
                     ? "text-white-300 underline underline-offset-4"
                     : ""
@@ -109,7 +109,7 @@ const HomePlayer = () => {
         <div className="w-full max-w-md text-center justify-center">
           <div className="relative w-full h-1 bg-white/30 rounded-full mb-4">
             <div
-              className="absolute top-0 left-0 h-full bg-yellow-300 rounded-full"
+              className="absolute top-0 left-0 h-full bg-blue-300 rounded-full"
               style={{ width: `${(currentTime / duration) * 100}%` }}
             ></div>
             <div
@@ -126,11 +126,11 @@ const HomePlayer = () => {
 
           {/* Control buttons */}
           <div className="flex items-center justify-center space-x-4 md:space-x-6">
-            <button className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300">
+            <button className="text-lg md:text-xl hover:text-blue-300 transition-colors duration-300">
               <IoMdShuffle />
             </button>
             <button
-              className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300"
+              className="text-lg md:text-xl hover:text-blue-300 transition-colors duration-300"
               onClick={handlePrevSong}
             >
               <FaStepBackward />
@@ -142,12 +142,12 @@ const HomePlayer = () => {
               {isPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
             </button>
             <button
-              className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300"
+              className="text-lg md:text-xl hover:text-blue-300 transition-colors duration-300"
               onClick={handleNextSong}
             >
               <FaStepForward />
             </button>
-            <button className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300">
+            <button className="text-lg md:text-xl hover:text-blue-300 transition-colors duration-300">
               <IoRepeat />
             </button>
           </div>

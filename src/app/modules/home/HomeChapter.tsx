@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ViewPhotoButton = () => {
   return (
-    <p className="font-manrope text-sm text-primary mt-8 hover:opacity-80 cursor-pointer">{`VIEW PHOTO ->`}</p>
+    <p className="font-manrope text-sm text-primary mt-8 hover:opacity-80 hover:underline cursor-pointer">{`VIEW PHOTO ->`}</p>
   );
 };
 
