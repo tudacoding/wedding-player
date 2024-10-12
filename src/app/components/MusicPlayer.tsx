@@ -8,6 +8,7 @@ export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [canAutoPlay, setCanAutoPlay] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -47,13 +48,44 @@ export default function MusicPlayer() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleInteraction = () => {
+      setCanAutoPlay(true);
+    };
+
+    window.addEventListener("click", handleInteraction);
+    window.addEventListener("keydown", handleInteraction);
+    window.addEventListener("scroll", handleInteraction);
+    window.addEventListener("mousemove", handleInteraction);
+
+    return () => {
+      window.removeEventListener("click", handleInteraction);
+      window.removeEventListener("keydown", handleInteraction);
+      window.removeEventListener("scroll", handleInteraction);
+      window.removeEventListener("mousemove", handleInteraction);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (canAutoPlay) {
+      const timer = setTimeout(() => {
+        togglePlay();
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [canAutoPlay]);
+
   const togglePlay = () => {
     if (audioRef.current) {
       setIsPlaying(!isPlaying);
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch(error => {
+          console.error("Error playing audio:", error);
+          setIsPlaying(false);
+        });
       }
     }
   };

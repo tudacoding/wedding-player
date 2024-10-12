@@ -8,9 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "svn-snell": ["SVN-Snell", "sans-serif"],
+        "eb-garamond": ["var(--font-eb-garamond)"],
+        manrope: ["var(--font-manrope)"],
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#205CA4",
+        secondary: "#F2EDE9",
+        white: "#FFFFFF",
       },
     },
   },
