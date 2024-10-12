@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 
@@ -57,12 +58,22 @@ const DownloadInvitation: React.FC<DownloadInvitationProps> = ({
         });
 
         const dataUrl = canvas.toDataURL("image/png");
-        const link = document.createElement("a");
-        link.href = dataUrl;
-        link.download = "wedding_invitation.png";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        
+        // Kiểm tra xem thiết bị có phải là iOS hay không
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+        
+        if (isIOS) {
+          // Đối với iOS, mở hình ảnh trong tab mới
+          window.open(dataUrl, '_blank');
+        } else {
+          // Đối với các thiết bị khác, sử dụng phương pháp tải xuống thông thường
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = "wedding_invitation.png";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
       } catch (error) {
         console.error("Error generating invitation image:", error);
       }
