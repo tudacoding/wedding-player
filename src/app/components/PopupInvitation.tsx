@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import html2canvas from "html2canvas";
+import { saveAs } from "file-saver";
 
 interface PopupInvitationProps {
   sender: string;
@@ -17,6 +19,7 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
   position,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -26,6 +29,81 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
+
+  const handleDownload = async () => {
+    if (contentRef.current) {
+      const scale = 2;
+      const canvas = await html2canvas(contentRef.current, {
+        backgroundColor: null,
+        useCORS: true,
+        scale: scale,
+        logging: false,
+        onclone: (clonedDoc) => {
+          const elements = clonedDoc.querySelectorAll('*');
+          elements.forEach((el) => {
+            if (el instanceof HTMLElement) {
+              const styles = window.getComputedStyle(el);
+              const color = styles.getPropertyValue('color');
+              const backgroundColor = styles.getPropertyValue('background-color');
+              
+              if (color.startsWith('oklch')) {
+                el.style.color = 'rgb(0, 0, 0)'; // Fallback to black
+              }
+              if (backgroundColor.startsWith('oklch')) {
+                el.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Fallback to transparent
+              }
+
+              // Apply computed styles to maintain layout and appearance
+              el.style.fontFamily = styles.fontFamily;
+              el.style.fontSize = styles.fontSize;
+              el.style.fontWeight = styles.fontWeight;
+              el.style.lineHeight = styles.lineHeight;
+              el.style.letterSpacing = styles.letterSpacing;
+              el.style.textAlign = styles.textAlign;
+              el.style.textTransform = styles.textTransform;
+            }
+          });
+        },
+      });
+
+      // Create a new canvas with padding
+      const paddingX = 60 * scale;
+      const paddingY = 60 * scale;
+      const newCanvas = document.createElement('canvas');
+      newCanvas.width = canvas.width + (paddingX * 2);
+      newCanvas.height = canvas.height + (paddingY * 2);
+      const ctx = newCanvas.getContext('2d');
+
+      if (ctx) {
+        // Fill the background
+        ctx.fillStyle = '#F5F5F5'; // Light gray background
+        ctx.fillRect(0, 0, newCanvas.width, newCanvas.height);
+
+        // Draw a border
+        ctx.strokeStyle = '#D3D3D3'; // Light gray border
+        ctx.lineWidth = 4 * scale;
+        ctx.strokeRect(paddingX / 2, paddingY / 2, newCanvas.width - paddingX, newCanvas.height - paddingY);
+
+        // Draw the original canvas content
+        ctx.drawImage(canvas, paddingX, paddingY);
+
+        // Add decorative elements
+        ctx.font = `${36 * scale}px 'SVN-Snell Roundhand'`;
+        ctx.fillStyle = '#333333';
+        ctx.textAlign = 'center';
+        ctx.fillText('Wedding Invitation', newCanvas.width / 2, paddingY / 2);
+
+        ctx.font = `${24 * scale}px 'EB Garamond'`;
+        ctx.fillText('Ouỳnh Phương & Tiến Thịnh', newCanvas.width / 2, newCanvas.height - paddingY / 4);
+
+        newCanvas.toBlob((blob) => {
+          if (blob) {
+            saveAs(blob, "wedding_invitation.png");
+          }
+        }, 'image/png');
+      }
+    }
+  };
 
   if (!isVisible) return null;
 
@@ -65,7 +143,7 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
             />
           </svg>
         </button>
-        <div className="flex flex-col p-4 sm:p-24">
+        <div className="flex flex-col p-4 sm:p-24" ref={contentRef}>
           <div className="flex flex-col sm:flex-row">
             <div className="w-full sm:w-2/3 pr-0 sm:pr-4 mb-4 sm:mb-0">
               <h2 className="text-3xl sm:text-4xl font-svn-snell text-primary mb-4 sm:mb-6">
@@ -103,7 +181,12 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
             <div className="mb-2 sm:mb-0 text-center sm:text-left">
               Thank you for your love and support. We are truly grateful.{" "}
             </div>
-            <div className="text-center sm:text-right">Download photo</div>
+            <div 
+              className="text-center sm:text-right cursor-pointer hover:underline"
+              onClick={handleDownload}
+            >
+              Download photo
+            </div>
           </div>
         </div>
       </div>
