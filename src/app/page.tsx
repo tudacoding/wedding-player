@@ -1,12 +1,17 @@
 import HomeHero from "@/app/modules/home/HomeHero";
 import HomePlayer from "@/app/modules/home/HomePlayer";
 import HomeChapter from "@/app/modules/home/HomeChapter";
+import HomeInvitation from "@/app/modules/home/HomeInvitation";
+import HomeSendMessage from "@/app/modules/home/HomeSendMessage";
+
 export default function Home() {
   return (
     <div>
       <HomeHero />
       <HomePlayer />
       <HomeChapter />
+      <HomeInvitation />
+      <HomeSendMessage />
       {/* <h1 className="text-4xl font-svn-snell font-bold">
         Xin chào từ SVN-Snell Bold!
       </h1>
