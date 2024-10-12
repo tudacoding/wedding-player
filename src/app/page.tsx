@@ -22,7 +22,7 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 px-4 py-8">
       <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
         <Link href="/home" onClick={handleClick}>
           <div
@@ -35,14 +35,14 @@ export default function WelcomePage() {
               alt="Logo"
               width={300}
               height={300}
-              className={`cursor-pointer transition-all duration-500 ${
+              className={`cursor-pointer transition-all duration-500 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 ${
                 isHovered ? "scale-110 brightness-110 rotate-3" : ""
               }`}
             />
             <div className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 rounded-full transition-all duration-300 ${
               isHovered ? "bg-opacity-40 scale-125" : ""
             }`}>
-              <span className={`text-white text-3xl font-svn-snell opacity-0 transform translate-y-4 drop-shadow-2xl transition-all duration-300 ${
+              <span className={`text-white text-xl sm:text-2xl md:text-3xl font-svn-snell opacity-0 transform translate-y-4 drop-shadow-2xl transition-all duration-300 ${
                 isHovered ? "opacity-100 translate-y-0" : ""
               }`}>
                 Enter Our Story
@@ -51,9 +51,9 @@ export default function WelcomePage() {
           </div>
         </Link>
       </div>
-      <div className="absolute bottom-10 text-center">
-        <p className="text-primary font-svn-snell text-4xl">Ouỳnh Phương & Tiến Thịnh</p>
-        <p className="text-primary font-eb-garamond text-sm mt-2">17:00 - October 20th, 2024</p>
+      <div className="mt-8 text-center">
+        <p className="text-primary font-svn-snell text-2xl sm:text-3xl md:text-4xl">Ouỳnh Phương & Tiến Thịnh</p>
+        <p className="text-primary font-eb-garamond text-xs sm:text-sm mt-2">17:00 - October 20th, 2024</p>
       </div>
     </div>
   );

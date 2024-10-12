@@ -9,15 +9,15 @@ const ViewPhotoButton = () => {
 
 const HomeChapter = () => {
   return (
-    <div className="bg-secondary p-8 flex flex-col items-center pb-20">
+    <div className="bg-secondary p-4 md:p-8 flex flex-col items-center pb-10 md:pb-20">
       {/* Chapter 01 */}
-      <div className="w-full max-w-4xl flex justify-between items-center mb-16 gap-8">
-        <div className="w-1/2 pr-8 text-right">
-          <h3 className="text-xl font-eb-garamond italic text-primary">
+      <div className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center mb-8 md:mb-16 gap-4 md:gap-8">
+        <div className="w-full md:w-1/2 md:pr-8 text-center md:text-right order-2 md:order-1">
+          <h3 className="text-lg md:text-xl font-eb-garamond italic text-primary">
             Chapter 01
           </h3>
-          <h1 className="text-6xl font-svn-snell text-primary mb-4">i sea u</h1>
-          <p className="font-eb-garamond text-xl text-primary">
+          <h1 className="text-4xl md:text-6xl font-svn-snell text-primary mb-2 md:mb-4">i sea u</h1>
+          <p className="font-eb-garamond text-base md:text-xl text-primary">
             tôi gửi tình yêu cho em qua từng con chữ, <br /> gửi tình yêu cho em
             qua những tiếng thầm thì,
             <br /> gửi tình yêu cho em qua vạn con sóng,
@@ -26,8 +26,8 @@ const HomeChapter = () => {
           </p>
           <ViewPhotoButton />
         </div>
-        <div className="w-1/2">
-          <h2 className="text-8xl font-svn-snell text-primary mb-2 text-right">
+        <div className="w-full md:w-1/2 order-1 md:order-2">
+          <h2 className="text-6xl md:text-8xl font-svn-snell text-primary mb-2 text-center md:text-right">
             01
           </h2>
           <Image
@@ -43,9 +43,9 @@ const HomeChapter = () => {
       </div>
 
       {/* Chapter 02 */}
-      <div className="w-full max-w-4xl flex justify-between items-center mb-16 gap-8">
-        <div className="w-1/2">
-          <h2 className="text-8xl font-svn-snell text-primary mb-2 text-left">
+      <div className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center mb-8 md:mb-16 gap-4 md:gap-8">
+        <div className="w-full md:w-1/2 order-1">
+          <h2 className="text-6xl md:text-8xl font-svn-snell text-primary mb-2 text-center md:text-left">
             02
           </h2>
           <Image
@@ -57,14 +57,14 @@ const HomeChapter = () => {
             quality={100}
           />
         </div>
-        <div className="w-1/2 pl-8">
-          <h3 className="text-xl font-eb-garamond italic text-primary">
+        <div className="w-full md:w-1/2 md:pl-8 text-center md:text-left order-2">
+          <h3 className="text-lg md:text-xl font-eb-garamond italic text-primary">
             Chapter 02
           </h3>
-          <h1 className="text-6xl font-svn-snell text-primary mb-4">
+          <h1 className="text-4xl md:text-6xl font-svn-snell text-primary mb-2 md:mb-4">
             Together
           </h1>
-          <p className="font-eb-garamond text-xl text-primary">
+          <p className="font-eb-garamond text-base md:text-xl text-primary">
             even though every day doesn't go as you wish
             <br /> and becomes blurry like smoke
             <br /> there are many paths in front of you
@@ -74,23 +74,23 @@ const HomeChapter = () => {
       </div>
 
       {/* Chapter 03 */}
-      <div className="w-full max-w-4xl flex justify-between items-center gap-8">
-        <div className="w-1/2 pr-8 text-right">
-          <h3 className="text-xl font-eb-garamond italic text-primary">
+      <div className="w-full max-w-4xl flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
+        <div className="w-full md:w-1/2 md:pr-8 text-center md:text-right order-2 md:order-1">
+          <h3 className="text-lg md:text-xl font-eb-garamond italic text-primary">
             Chapter 03
           </h3>
-          <h1 className="text-6xl font-svn-snell text-primary mb-4">
+          <h1 className="text-4xl md:text-6xl font-svn-snell text-primary mb-2 md:mb-4">
             Present Perfect Continuous
           </h1>
-          <p className="font-eb-garamond text-xl text-primary">
+          <p className="font-eb-garamond text-base md:text-xl text-primary">
             những hành động, sự việc đã diễn ra ở quá khứ,
-            <br /> nhưng vẫn tiếp tục ở hiện tại và tiếp diễn
+            <br /> nhưng vẫn tiếp tục ở hiện tại và tiếp diễn
             <br /> trong tương lai
           </p>
           <ViewPhotoButton />
         </div>
-        <div className="w-1/2">
-          <h2 className="text-8xl font-svn-snell text-primary mb-2 text-right">
+        <div className="w-full md:w-1/2 order-1 md:order-2">
+          <h2 className="text-6xl md:text-8xl font-svn-snell text-primary mb-2 text-center md:text-right">
             03
           </h2>
           <Image
