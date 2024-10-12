@@ -3,7 +3,7 @@ const HomeInvitation = () => {
     <div className="bg-primary text-white py-8 md:py-16">
       <div className="max-w-3xl mx-auto text-center px-4 md:px-0">
         <h2 className="font-svn-snell text-3xl md:text-5xl mb-2 md:mb-4">
-          Ouỳnh Phương & Tiến Thịnh
+          Quỳnh Phương & Tiến Thịnh
         </h2>
         <div className="flex justify-center my-2 md:my-4">
           <div className="w-24 md:w-40 h-px bg-white opacity-50 mt-2"></div>

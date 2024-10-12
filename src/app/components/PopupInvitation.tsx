@@ -70,7 +70,7 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
           <div className="flex flex-col sm:flex-row">
             <div className="w-full sm:w-2/3 pr-0 sm:pr-4 mb-4 sm:mb-0">
               <h2 className="text-3xl sm:text-4xl font-svn-snell text-primary mb-4 sm:mb-6">
-                to: Ouỳnh Phương & Tiến Thịnh
+                to: Quỳnh Phương & Tiến Thịnh
               </h2>
               <p className="text-primary mb-4 sm:mb-8 font-eb-garamond text-base sm:text-lg text-justify">
                 {message}
