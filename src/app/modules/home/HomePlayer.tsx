@@ -1,42 +1,65 @@
 "use client";
 import Image from "next/image";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { FaPlay, FaPause, FaStepBackward, FaStepForward } from "react-icons/fa";
 import { IoMdShuffle } from "react-icons/io";
 import { IoRepeat } from "react-icons/io5";
 
 const songs = [
-  { id: 1, title: "Love story", artist: "Taylor Swift" },
-  { id: 2, title: "Together", artist: "Martin Garrix" },
-  { id: 3, title: "Home", artist: "Michael Bublé" },
-  { id: 4, title: "Until I found you", artist: "Stephen Sanchez" },
-  { id: 5, title: "How deep is your love", artist: "Bee Gees" },
-  { id: 6, title: "A thousand years", artist: "Christina Perri" },
-  { id: 7, title: "All of me", artist: "John Legend" },
+  { id: 1, title: "Ngày đầu tiên", artist: "Đức Phúc", file: "ngaydautien.mp4" },
+  { id: 2, title: "Hẹn gặp em dưới ánh trăng", artist: "Hiền Hồ", file: "hengapemduoianhtrang.mp4" },
+  { id: 3, title: "Home", artist: "Michael Bublé", file: "home.mp4" },
+  { id: 4, title: "Xứng đôi cưới thôi", artist: "Lê Thiện Hiếu", file: "xungdoicuoithoi.mp4" },
+  { id: 5, title: "Yes I Do", artist: "98 Degrees", file: "yesido.mp4" },
+  { id: 6, title: "Yêu em hơn mỗi ngày", artist: "Andiez", file: "yeuemhonmoingay.mp4" },
 ];
 
 const HomePlayer = () => {
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration] = useState(240); // Assuming 4 minutes duration
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.addEventListener('loadedmetadata', () => {
+        setDuration(audioRef.current!.duration);
+      });
+      audioRef.current.addEventListener('timeupdate', () => {
+        setCurrentTime(audioRef.current!.currentTime);
+      });
+    }
+  }, [currentSong]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  }, [currentSong]);
 
   const handlePlayPause = useCallback(() => {
-    setIsPlaying(!isPlaying);
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
   }, [isPlaying]);
 
   const handleNextSong = useCallback(() => {
     const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     const nextIndex = (currentIndex + 1) % songs.length;
     setCurrentSong(songs[nextIndex]);
-    setCurrentTime(0);
   }, [currentSong]);
 
   const handlePrevSong = useCallback(() => {
     const currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     const prevIndex = (currentIndex - 1 + songs.length) % songs.length;
     setCurrentSong(songs[prevIndex]);
-    setCurrentTime(0);
   }, [currentSong]);
 
   const formatTime = (time: number) => {
@@ -141,6 +164,11 @@ const HomePlayer = () => {
           </div>
         </div>
       </div>
+      <audio
+        ref={audioRef}
+        src={`/audio/${currentSong.file}`}
+        onEnded={handleNextSong}
+      />
     </div>
   );
 };

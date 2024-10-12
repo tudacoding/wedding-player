@@ -37,6 +37,7 @@ const HomeSendMessage = () => {
             </div>
             
             <div className="md:w-1/2 p-8 md:p-12">
+              <div className="w-full h-px bg-primary opacity-50 mb-4"></div>
               <h2 className="text-sm font-manrope text-primary uppercase mb-10">
                 WORDS OF LOVE
               </h2>
