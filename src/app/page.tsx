@@ -23,7 +23,7 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 px-4 py-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-100 px-4 py-8">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.95 }}
@@ -49,7 +49,7 @@ export default function WelcomePage() {
               className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 rounded-full"
               animate={{
                 backgroundColor: isHovered ? "rgba(0, 0, 0, 0.4)" : "rgba(0, 0, 0, 0)",
-                scale: isHovered ? 1.25 : 1
+                scale: isHovered ? 1.1 : 1
               }}
               transition={{ duration: 0.3 }}
             >

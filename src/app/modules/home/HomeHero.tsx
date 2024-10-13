@@ -12,7 +12,7 @@ const HomeHero = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen p-1 bg-primary gap-1">
+    <div className="flex flex-col md:flex-row h-screen md:p-1 bg-primary md:gap-1">
       <div className="hidden md:block md:w-[7%] relative h-full">
         <Image
           src="/images/wedding/image-1.2.png"
@@ -23,10 +23,10 @@ const HomeHero = () => {
           quality={100}
         />
       </div>
-      <div className="w-full md:w-[33%] relative h-1/3 md:h-full">
+      <div className="hidden md:block w-full md:w-[33%] relative h-1/3 md:h-full">
         <Image
           priority
-          src="/images/wedding/image-1.1.png"
+          src="/images/wedding/cd-cr.gif"
           alt="Wedding invitation"
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
@@ -63,7 +63,9 @@ const HomeHero = () => {
           </button>
         </div>
         <div className="flex flex-col justify-center items-center text-primary h-full p-4 md:p-8">
-          <div className="font-eb-garamond text-sm md:text-base">The Preface</div>
+          <div className="font-eb-garamond text-sm md:text-base">
+            The Preface
+          </div>
           <div className="text-3xl md:text-5xl font-svn-snell text-center">
             <p className="mb-2">When things are hard and you're tired</p>
             <p className="mb-2">I'll shine on you</p>
@@ -71,19 +73,37 @@ const HomeHero = () => {
             <p>So we can be strength of each other</p>
 
             <div className="mt-10 md:mt-20">
-              <div className="font-manrope text-xs mb-2 md:mb-4">SAVE THE DATE</div>
+              <div className="font-manrope text-xs mb-2 md:mb-4">
+                SAVE THE DATE
+              </div>
               <div className="flex flex-col md:flex-row justify-between font-eb-garamond text-sm md:text-lg">
                 <div>OCTOBER 20</div>
                 <div className="hidden md:block">-</div>
-                <div className="text-center my-2 md:my-0">CUNG VAN HOA HUU NGHI VIET - XO</div>
+                <div className="text-center my-2 md:my-0">
+                  CUNG VAN HOA HUU NGHI VIET - XO
+                </div>
                 <div className="hidden md:block">-</div>
                 <div>17:00</div>
               </div>
             </div>
           </div>
         </div>
+        <div className="block md:hidden w-full md:w-[33%] relative h-1/2 md:h-full">
+          <Image
+            priority
+            src="/images/wedding/cd-cr.gif"
+            alt="Wedding invitation"
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            style={{ objectFit: "cover" }}
+            quality={100}
+          />
+        </div>
       </div>
-      <SidebarQRCode isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      <SidebarQRCode
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      />
     </div>
   );
 };
