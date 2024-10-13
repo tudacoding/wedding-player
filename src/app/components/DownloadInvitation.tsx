@@ -23,7 +23,7 @@ const DownloadInvitation: React.FC<DownloadInvitationProps> = ({
           <h2 style="text-transform: lowercase; font-size: 2.25rem; font-family: 'svn-snell', cursive; color: #205CA4; margin-bottom: 2.5rem; text-align: center;">
             to: quỳnh phương & tiến thịnh
           </h2>
-          <p style="text-transform: lowercase; color: #205CA4; margin-bottom: 1.5rem; font-family: 'eb garamond', serif; font-size: 1.25rem; text-align: justify; line-height: 1.6;">
+          <p style="text-transform: lowercase; color: #205CA4; margin-bottom: 1.5rem; font-family: 'eb garamond', serif; font-size: 1.25rem; text-align: center; line-height: 1.6;">
             ${message}
           </p>
           <p style="text-transform: lowercase; font-size: 2.25rem; font-family: 'svn-snell', cursive; color: #205CA4; margin-top: 1.5rem; text-align: center;">
@@ -88,7 +88,7 @@ const DownloadInvitation: React.FC<DownloadInvitationProps> = ({
       ></div>
       <button
         onClick={handleDownload}
-        className="bg-primary text-white px-6 py-2 rounded-full transition-all duration-300 font-manrope text-sm tracking-wider hover:bg-primary-dark hover:shadow-lg hover:scale-105 hover:text-secondary"
+        className="hidden lg:block bg-primary text-white px-6 py-2 rounded-full transition-all duration-300 font-manrope text-sm tracking-wider hover:bg-primary-dark hover:shadow-lg hover:scale-105 hover:text-secondary"
       >
         DOWNLOAD LETTER
       </button>

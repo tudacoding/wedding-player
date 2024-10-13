@@ -32,7 +32,7 @@ const PopupInvitation: React.FC<PopupInvitationProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 z-50 overflow-auto bg-black transition-opacity duration-300 ${
+      className={`fixed inset-0 z-96 overflow-auto bg-black transition-opacity duration-300 ${
         isOpen ? "bg-opacity-50" : "bg-opacity-0"
       } flex items-center justify-center`}
     >

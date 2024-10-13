@@ -11,21 +11,39 @@ const HomeSendMessage = () => {
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim() === "" || wishes.trim() === "") {
       alert("Please fill in all fields");
       return;
     }
-    if (buttonRef.current) {
-      const rect = buttonRef.current.getBoundingClientRect();
-      const scrollY = window.scrollY || window.pageYOffset;
-      setPopupPosition({ 
-        x: rect.left + window.scrollX, 
-        y: rect.top + scrollY + 150
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, wishes }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      if (buttonRef.current) {
+        const rect = buttonRef.current.getBoundingClientRect();
+        const scrollY = window.scrollY || window.pageYOffset;
+        setPopupPosition({ 
+          x: rect.left + window.scrollX, 
+          y: rect.top + scrollY + 150
+        });
+      }
+      setIsPopupOpen(true);
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send your message. Please try again later.');
     }
-    setIsPopupOpen(true);
   };
 
   const handleClosePopup = () => {
