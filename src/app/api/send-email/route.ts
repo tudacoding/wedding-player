@@ -4,39 +4,35 @@ import nodemailer from 'nodemailer';
 export async function POST(request: Request) {
   const { name, wishes } = await request.json();
 
-  // Cấu hình transporter cho Nodemailer
+  // Cấu hình transporter cho Nodemailer với Gmail
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: parseInt(process.env.EMAIL_PORT || '587'),
-    secure: process.env.EMAIL_SECURE === 'true',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // Sử dụng TLS
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      pass: process.env.EMAIL_PASS, // Sử dụng App Password ở đây
     },
   });
 
+  // Lấy danh sách email người nhận và chuyển thành mảng
+  const recipients = process.env.EMAIL_TO?.split(',') || [];
+
   try {
-    // Gửi email
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
-      subject: 'New Wedding Wishes',
-      text: `Name: ${name}\nWishes: ${wishes}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Wishes:</strong> ${wishes}</p>`,
-    });
+    // Gửi email đến tất cả người nhận
+    await Promise.all(recipients.map(async (recipient) => {
+      await transporter.sendMail({
+        from: process.env.EMAIL_FROM,
+        to: recipient.trim(), // Loại bỏ khoảng trắng thừa
+        subject: 'New Wedding Wishes',
+        text: `Name: ${name}\nWishes: ${wishes}`,
+        html: `<p><strong>Name:</strong> ${name}</p><p><strong>Wishes:</strong> ${wishes}</p>`,
+      });
+    }));
 
-    // await transporter.sendMail({
-    //   from: process.env.EMAIL_FROM,
-    //   to: 'quynhphuongduong19@gmail.com',
-    //   subject: 'New Wedding Wishes',
-    //   text: `Name: ${name}\nWishes: ${wishes}`,
-    //   html: `<p><strong>Name:</strong> ${name}</p><p><strong>Wishes:</strong> ${wishes}</p>`,
-    // });
-
-    return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+    return NextResponse.json({ message: 'Emails sent successfully' }, { status: 200 });
   } catch (error) {
-    console.error('Failed to send email:', error);
-    return NextResponse.json({ message: 'Failed to send email' }, { status: 500 });
+    console.error('Failed to send emails:', error);
+    return NextResponse.json({ message: 'Failed to send emails' }, { status: 500 });
   }
 }
-
