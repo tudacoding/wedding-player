@@ -25,13 +25,13 @@ export async function POST(request: Request) {
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Wishes:</strong> ${wishes}</p>`,
     });
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM,
-      to: 'quynhphuongduong19@gmail.com',
-      subject: 'New Wedding Wishes',
-      text: `Name: ${name}\nWishes: ${wishes}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Wishes:</strong> ${wishes}</p>`,
-    });
+    // await transporter.sendMail({
+    //   from: process.env.EMAIL_FROM,
+    //   to: 'quynhphuongduong19@gmail.com',
+    //   subject: 'New Wedding Wishes',
+    //   text: `Name: ${name}\nWishes: ${wishes}`,
+    //   html: `<p><strong>Name:</strong> ${name}</p><p><strong>Wishes:</strong> ${wishes}</p>`,
+    // });
 
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   } catch (error) {
