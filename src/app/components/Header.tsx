@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import SidebarQRCode from "@/app/components/SidebarQRCode";
 
@@ -13,12 +14,14 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center p-4 bg-white">
       <div className="logo">
-        <Image
-          src="/images/logo.svg"
-          alt="Logo"
-          width={50}
-          height={50}
-        />
+        <Link href="/home">
+          <Image
+            src="/images/logo.svg"
+            alt="Logo"
+            width={50}
+            height={50}
+          />
+        </Link>
       </div>
       <div className="menu">
         <button onClick={toggleSidebar} className="text-primary">
