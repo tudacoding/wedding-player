@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ViewPhotoButton = ({ href }: { href: string }) => {
   return (
-    <Link href={href}>
+    <Link href={href} target="_blank" rel="noopener noreferrer">
       <p className="font-manrope text-sm text-primary mt-8 hover:opacity-80 hover:underline cursor-pointer">{`VIEW PHOTO ->`}</p>
     </Link>
   );
