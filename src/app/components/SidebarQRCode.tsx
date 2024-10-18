@@ -67,7 +67,12 @@ const SidebarQRCode: React.FC<SidebarQRCodeProps> = ({ isOpen, onClose }) => {
                   height={150}
                   sizes="(max-width: 640px) 150px, 200px"
                 />
+                <p className="font-eb-garamond text-sm mt-2 text-center">
+                  STK: 1903 4538 5660 15 <br />
+                  Techcombank
+                </p>
               </div>
+              <div className="w-full h-px bg-white opacity-50 my-6 sm:my-8"></div>
               <div className="mb-6 sm:mb-8 flex flex-col items-center">
                 <h2 className="font-eb-garamond text-sm italic mb-4 text-center">
                   Mừng cưới đến chú rể
@@ -83,6 +88,9 @@ const SidebarQRCode: React.FC<SidebarQRCodeProps> = ({ isOpen, onClose }) => {
                   height={150}
                   sizes="(max-width: 640px) 150px, 200px"
                 />
+                <p className="font-eb-garamond text-sm mt-2 text-center">
+                  STK: 1997 6666 <br /> Techcombank
+                </p>
               </div>
               <p className="font-eb-garamond text-sm mt-4 text-center">
                 We are truly grateful.
