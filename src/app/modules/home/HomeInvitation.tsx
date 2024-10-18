@@ -15,7 +15,7 @@ const HomeInvitation = () => {
           marriage
         </p>
         <h3 className="font-svn-snell text-4xl md:text-6xl mb-6 md:mb-12">
-          17:00 - October 20th, 2024
+          17:30 - October 20th, 2024
         </h3>
         <p className="font-eb-garamond text-xl md:text-2xl uppercase">
           CUNG VAN HOA HUU NGHI VIET - XO

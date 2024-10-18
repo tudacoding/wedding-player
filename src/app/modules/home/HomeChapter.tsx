@@ -1,9 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
+import Link from "next/link";
 
-const ViewPhotoButton = () => {
+const ViewPhotoButton = ({ href }: { href: string }) => {
   return (
-    <p className="font-manrope text-sm text-primary mt-8 hover:opacity-80 hover:underline cursor-pointer">{`VIEW PHOTO ->`}</p>
+    <Link href={href}>
+      <p className="font-manrope text-sm text-primary mt-8 hover:opacity-80 hover:underline cursor-pointer">{`VIEW PHOTO ->`}</p>
+    </Link>
   );
 };
 
@@ -24,7 +27,7 @@ const HomeChapter = () => {
             <br />
             gửi cho em yêu thương nơi tôi
           </p>
-          <ViewPhotoButton />
+          <ViewPhotoButton href="/chapter-01" />
         </div>
         <div className="w-full md:w-1/2 order-1 md:order-2">
           <h2 className="text-6xl md:text-8xl font-svn-snell text-primary mb-2 text-center md:text-right">
@@ -69,7 +72,7 @@ const HomeChapter = () => {
             <br /> and becomes blurry like smoke
             <br /> there are many paths in front of you
           </p>
-          <ViewPhotoButton />
+          <ViewPhotoButton href="/chapter-02" />
         </div>
       </div>
 
@@ -87,7 +90,7 @@ const HomeChapter = () => {
             <br /> nhưng vẫn tiếp tục ở hiện tại và tiếp diễn
             <br /> trong tương lai
           </p>
-          <ViewPhotoButton />
+          <ViewPhotoButton href="/chapter-03" />
         </div>
         <div className="w-full md:w-1/2 order-1 md:order-2">
           <h2 className="text-6xl md:text-8xl font-svn-snell text-primary mb-2 text-center md:text-right">

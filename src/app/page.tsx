@@ -80,7 +80,7 @@ export default function WelcomePage() {
           <div className="w-16 h-px bg-primary mx-2"></div>
         </div>
         <p className="text-primary font-svn-snell text-2xl sm:text-3xl md:text-4xl">Quỳnh Phương & Tiến Thịnh</p>
-        <p className="text-primary font-eb-garamond text-xl mt-2">17:00 - October 20th, 2024</p>
+        <p className="text-primary font-eb-garamond text-xl mt-2">17:30 - October 20th, 2024</p>
       </motion.div>
     </div>
   );

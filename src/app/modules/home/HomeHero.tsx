@@ -83,7 +83,7 @@ const HomeHero = () => {
                   CUNG VAN HOA HUU NGHI VIET - XO
                 </div>
                 <div className="hidden md:block">-</div>
-                <div>17:00</div>
+                <div>17:30</div>
               </div>
             </div>
           </div>
