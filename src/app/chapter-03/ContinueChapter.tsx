@@ -14,7 +14,7 @@ const ContinueChapter = () => {
       const scrollY = window.scrollY || window.pageYOffset;
       setDialogPosition({
         x: window.innerWidth / 2,
-        y: rect.top + scrollY - 400
+        y: rect.top + scrollY - 700
       });
     }
     setIsDialogOpen(true);
