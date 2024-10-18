@@ -6,12 +6,14 @@ import { IoMdShuffle } from "react-icons/io";
 import { IoRepeat } from "react-icons/io5";
 
 const songs = [
-  { id: 1, title: "Ngày đầu tiên", artist: "Đức Phúc", file: "ngaydautien.mp4" },
-  { id: 2, title: "Hẹn gặp em dưới ánh trăng", artist: "Hiền Hồ", file: "hengapemduoianhtrang.mp4" },
+  { id: 1, title: "Hẹn gặp em dưới ánh trăng", artist: "Hiền Hồ", file: "hengapemduoianhtrang.mp4" },
+  { id: 2, title: "Ngày đầu tiên", artist: "Đức Phúc", file: "ngaydautien.mp4" },
   { id: 3, title: "Home", artist: "Michael Bublé", file: "home.mp4" },
-  { id: 4, title: "Xứng đôi cưới thôi", artist: "Lê Thiện Hiếu", file: "xungdoicuoithoi.mp4" },
+  { id: 4, title: "Util I found you", artist: "Michael Bublé", file: "utilifoundyou.mp4" },
   { id: 5, title: "Yes I Do", artist: "98 Degrees", file: "yesido.mp4" },
-  { id: 6, title: "Yêu em hơn mỗi ngày", artist: "Andiez", file: "yeuemhonmoingay.mp4" },
+  { id: 6, title: "A thousand years", artist: "98 Degrees", file: "athousandyears.mp4" },
+  { id: 7, title: "Một nhà", artist: "98 Degrees", file: "motnha.mp4" },
+
 ];
 
 const HomePlayer = () => {
