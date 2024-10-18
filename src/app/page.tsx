@@ -43,7 +43,7 @@ export default function WelcomePage() {
               width={300}
               height={300}
               quality={100}
-              className="cursor-pointer w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80"
+              className="cursor-pointer w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 animate-pulse"
             />
             <motion.div
               className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 rounded-full"
@@ -72,7 +72,7 @@ export default function WelcomePage() {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <p className="text-primary font-eb-garamond text-xl mb-4">
-          Chạm vào biểu tượng trên <br/> để khám phá câu chuyện của chúng tôi
+          Ấn vào biểu tượng trên <br/> để khám phá câu chuyện của chúng tôi
         </p>
         <div className="flex justify-center items-center my-4">
           <div className="w-16 h-px bg-primary mx-2"></div>
