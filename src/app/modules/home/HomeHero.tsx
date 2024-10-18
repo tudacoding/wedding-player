@@ -62,7 +62,7 @@ const HomeHero = () => {
             </svg>
           </button>
         </div>
-        <div className="flex flex-col justify-center items-center text-primary h-full p-4 md:p-8">
+        <div className="flex flex-col justify-center items-center text-primary mt-16 md:mt-0 h-full p-4 md:p-8">
           <div className="font-eb-garamond text-sm md:text-base">
             The Preface
           </div>
