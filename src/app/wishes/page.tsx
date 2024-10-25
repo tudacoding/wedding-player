@@ -57,7 +57,7 @@ const WishesPage = () => {
   return (
     <>
       <Header />
-      <div className="px-4 py-12 bg-gradient-to-br from-blue-100 via-pink-100 to-primary min-h-screen">
+      <div className="px-4 py-12 bg-gradient-to-br from-white to-blue-100 min-h-screen">
         <h1 className="text-5xl font-bold font-svn-snell mb-12 text-center text-blue-800 font-cursive animate-pulse">Lời chúc yêu thương</h1>
         <div className="flex flex-wrap justify-center gap-10">
           {wishes.map((wish, index) => (
@@ -69,14 +69,14 @@ const WishesPage = () => {
                 transform: `rotate(${Math.random() * 6 - 3}deg)`,
               }}
             >
-              <div className="mb-6 h-1 w-16 bg-gradient-to-r from-primary to-blue-400 rounded-full mx-auto"></div>
+              <div className="mb-6 h-1 w-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mx-auto"></div>
               <p className="text-gray-800 text-2xl font-handwriting leading-relaxed mb-6">
                 &ldquo;{wish?.content}&rdquo;
               </p>
               <p className="text-blue-700 text-xl font-eb-garamond font-semibold mt-6 text-right">
                 - {wish?.sender}
               </p>
-              <div className="w-6 h-6 bg-gradient-to-br from-primary to-blue-400 rounded-full mx-auto mt-6 flex items-center justify-center animate-spin-slow">
+              <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mt-6 flex items-center justify-center animate-spin-slow">
                 <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
             </div>
@@ -86,7 +86,7 @@ const WishesPage = () => {
           <button
             ref={buttonRef}
             onClick={openDialog}
-            className="text-primary hover:underline uppercase text-sm"
+            className="text-blue-600 hover:underline uppercase text-sm"
           >
             Send your wishes →
           </button>
