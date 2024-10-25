@@ -2267,6 +2267,11 @@ react-icons@^5.3.0:
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.3.0.tgz#ccad07a30aebd40a89f8cfa7d82e466019203f1c"
   integrity sha512-DnUk8aFbTyQPSkCfF8dbX6kQjXA9DktMeJqfjrg6cK9vwQVMxmcA3BfP4QoiztVmEHtwlTgLFsPuH2NskKT6eg==
 
+react-image-grid-gallery@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/react-image-grid-gallery/-/react-image-grid-gallery-2.1.4.tgz#bb21231869ed8a58a8b47cffe2fa1d829b01d6e5"
+  integrity sha512-ZAQi2LjSSKCtu0vgWUYttrRtiJ8nHZERq2T/m4guDJPUuzP8j7q/CM24+/n3p7VbQKZBa+ySTGqqjM1SHmvGPg==
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
