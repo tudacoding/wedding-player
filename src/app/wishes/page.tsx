@@ -74,7 +74,7 @@ const WishesPage = () => {
                 &ldquo;{wish?.content}&rdquo;
               </p>
               <p className="text-blue-700 text-xl font-eb-garamond font-semibold mt-6 text-right">
-                - {wish?.sender}
+                {wish?.sender}
               </p>
               <div className="w-6 h-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mt-6 flex items-center justify-center animate-spin-slow">
                 <div className="w-3 h-3 bg-white rounded-full"></div>
