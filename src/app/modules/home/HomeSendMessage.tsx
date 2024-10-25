@@ -109,6 +109,13 @@ const HomeSendMessage = () => {
                 >
                   Send →
                 </button>
+                <button
+                  type="button"
+                  onClick={() => window.location.href='/wishes'}
+                  className="w-full bg-secondary text-primary font-manrope py-3 px-6 uppercase hover:bg-secondary-dark transition duration-300 mt-4"
+                >
+                  See Other Wishes
+                </button>
               </form>
             </div>
           </div>
